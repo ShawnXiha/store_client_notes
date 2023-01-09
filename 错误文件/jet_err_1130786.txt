@@ -1,0 +1,47 @@
+
+JET RUNTIME HAS DETECTED UNRECOVERABLE ERROR: runtime error
+mmap() failed (errno=ENOMEM).
+It may be related to exceeding process's maximum number of memory mappings
+Please try to adjust VM params by setting the following VM options:
+  export JETVMPROP="-Djet.gc.defrag.holes.threshold=39489 -Djet.gc.force.defrag.to.lower.address" 
+
+If this doesn't help, please try to increase the limit of memory mappings by running the following command in terminal as root:
+
+  sysctl -w vm.max_map_count=131060
+
+(default value is most likely around 65530).
+Please note that this setting is not persistent and will be reseted to default after reboot
+If it helps, you can make it persistent by adding 'vm.max_map_count=131060' line to /etc/sysctl.conf
+
+Please, contact the vendor of the application.
+Core dump will be piped to "/usr/share/apport/apport -p%p -s%s -c%c -d%d -P%P -u%u -g%g -- %E"
+
+Version Information:
+
+  Java version: 1.8.0_181
+  Excelsior JET 15.30 Enterprise edition
+  JET Profile: OpenJDK version: 1.8.0_181; JET update level: 6; CPU architecture: amd64
+  Runtime: Server
+  CPU features: cmov mmx sse sse2 sse3 ssse3 sse4.1 sse4.2 avx avx2 fma f16c lzcnt popcnt bmi1 bmi2 adx cx8 cx16 movbe tsx.hle tsx.rtm
+  Application was deployed
+
+Options and system properties:
+
+  -Djet.jit.disable.resolution=
+  -Djet.gc.heaplimit=0
+  -Djet.stack.trace=
+
+Entry point type: Invocation API
+
+Command line: "python" "scripts/run_us_a_year.py"
+
+OS:
+
+Ubuntu 20.04.5 LTS
+Linux 5.4.0-136-generic #153-Ubuntu SMP Thu Nov 24 15:56:58 UTC 2022 x86_64
+glibc 2.31
+
+JET-compiled Components:
+
+/usr/lib/libsaxonhec.so dll, version info: jet-1530-mp1 (ent, en)
+
